@@ -42,11 +42,14 @@ float compute(float2 coord) {
     return iterations;
 }
 
+extern float2 Min;
+extern float2 Max;
+
 float4 MainPS(VertexShaderOutput input) : COLOR
 {
     float2 coord = float2(
-        lerp(-2.2, 1.2, input.TextureCoordinates.x),
-        lerp(-1.2, 1.2, input.TextureCoordinates.y));
+        lerp(Min.x, Max.x, input.TextureCoordinates.x),
+        lerp(Min.y, Max.y, input.TextureCoordinates.y));
     float convergenceValue = compute(coord);
     float v = min(convergenceValue / 40.0, 1.0);
     return float4(v, v, v, 1);

@@ -14,6 +14,7 @@ public class SimpleGame {
 
     public ContentManager Content { get => game.Content; }
     public GraphicsDevice Graphics { get => game.GraphicsDevice; }
+    public Game MonoGame { get => game; }
 
     public Point Size {
         get => new(game.GraphicsManager.PreferredBackBufferWidth, game.GraphicsManager.PreferredBackBufferHeight);
